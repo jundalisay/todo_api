@@ -9,22 +9,22 @@ Legend:
 
 ## 🚪 Login
 
-[x][done done] Should return an access token that can be used for the other endpoints
-- [3 hours] Explored Guardian, Phx Gen Auth, Pow for API auth. Ended up with Pow @ https://github.com/pow-auth/pow/blob/main/guides/api.md 
-- [2 hours] Wrote tests of users
-- mix phx.gen.json Users User users username password
-[x][done done] Usernames must be unique across all users
-- [0.5 hour] Scaffolded `mix phx.gen.context Users User users username password`
-  - Added unique constraint in Pow `use Pow.Ecto.Schema, user_id_field: :username`   
-- [0.5 hour] Wrote test for uniqueness
+- [x] **[done done]** Should return an access token that can be used for the other endpoints
+  - [3 hours] Explored Guardian, Phx Gen Auth, Pow for API auth. Ended up with Pow @ https://github.com/pow-auth/pow/blob/main/guides/api.md 
+  - [2 hours] Wrote tests of users
+  - mix phx.gen.json Users User users username password
+- [x] **[done done]** Usernames must be unique across all users
+  - [0.5 hour] Scaffolded `mix phx.gen.context Users User users username password`
+    - Added unique constraint in Pow `use Pow.Ecto.Schema, user_id_field: :username`   
+  - [0.5 hour] Wrote test for uniqueness
 
 
 ## 📓 Todo List
 
-[][not done] Return proper errors with corresponding HTTP codes
-- mix phx.gen.context Tasks Task tasks user_id:references:users position:integer content status
+- [] **[not done]** Return proper errors with corresponding HTTP codes
+  - mix phx.gen.context Tasks Task tasks user_id:references:users position:integer content status
 
-[][not done] All endpoints should return JSON responses.
+- [] **[not done]** All endpoints should return JSON responses.
 
 
 ## Status Codes
