@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :todoapi, Todoapi.Repo,
   username: "jun",
-  password: "`",
+  password: "pword",
   hostname: "localhost",
   database: "todoapi_dev",
   stacktrace: true,

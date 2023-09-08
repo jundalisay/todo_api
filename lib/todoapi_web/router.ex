@@ -2,13 +2,23 @@ defmodule TodoapiWeb.Router do
   use TodoapiWeb, :router
   use Plug.ErrorHandler
 
-  def handle_errors(conn, %{reason: %Phoenix.Router.NoRouteError{message: message}}) do
-    conn |> json(%{errors: message}) |> halt()
+  # @callback handle_errors(Plug.Conn.t(), %{
+  #   kind: :error | :throw | :exit,
+  #   reason: Exception.t() | term(),
+  #   stack: Exception.stacktrace()
+  # }) :: no_return()
+
+  def handle_errors(conn, %{kind: _kind, reason: _reason, stack: _stack}) do
+    conn |> json(%{error: conn.status}) |> halt()
   end
 
-  def handle_errors(conn, %{reason: %{message: message}}) do
-    conn |> json(%{errors: message}) |> halt()
-  end
+  # def handle_errors(conn, %{reason: %Phoenix.Router.NoRouteError{message: message}}) do
+  #   conn |> json(%{errors: message}) |> halt()
+  # end
+
+  # def handle_errors(conn, %{reason: %{message: message}}) do
+  #   conn |> json(%{errors: message}) |> halt()
+  # end
 
   pipeline :api do
     plug :accepts, ["json"]
